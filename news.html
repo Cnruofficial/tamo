@@ -3,69 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Latest Events - TAMO Clone</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>TAMO - Naujausi įvykiai</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="logo">
-                <span class="logo-text">TAM<span class="logo-eyes">O</span></span>
-                <span class="flag">🇺🇦</span>
+    <div class="events-header">
+        <span class="menu-icon"><i class="fas fa-bars"></i></span>
+        <div class="logo">
+            <a href="index.html">
+                <img src="http://googleusercontent.com/image_collection/image_retrieval/1543286545049328573" alt="TAMO Logo">
+            </a>
+        </div>
+        <div class="nav-icons">
+            <span><i class="fas fa-bell"></i><sup style="color: red; font-size: 0.7em; vertical-align: top;">!</sup></span>
+            <span><i class="fas fa-user-circle"></i></span>
+            <span><i class="fas fa-envelope"></i></span>
+            <span><i class="fas fa-cog"></i></span>
+        </div>
+    </div>
+
+    <div class="container events-section">
+        <h2>Naujausi įvykiai</h2>
+
+        <div class="events-list">
+            <div class="event-day">
+                <h3 class="today">03 Antradienis</h3>
+                <div class="event-item">
+                    <span class="icon"><i class="fas fa-file-alt"></i></span>
+                    <div class="content">
+                        <h4>Užsienio kalba (prancūzų)</h4>
+                        <p>https://anyfrench.com/lecture/ma-vie-au-quotidien</p>
+                        <p>Įrašyta į birželio 03d. pamoką.</p>
+                        <p>Atlikti iki birželio 05d.</p>
+                    </div>
+                </div>
+                <div class="event-item">
+                    <span class="icon"><i class="fas fa-file-alt"></i></span>
+                    <div class="content">
+                        <h4>Užsienio kalba (anglų)</h4>
+                        <p>Katherine Sylchenkova is inviting you to a scheduled Zoom meeting. Join Zoom Meeting</p>
+                        <p><a href="https://us04web.zoom.us/j/71376839004?pwd=sTEFjNWxlJzRwY6HUHUlTYeuU11wq.1" target="_blank">https://us04web.zoom.us/j/71376839004?pwd=sTEFjNWxlJzRwY6HUHUlTYeuU11wq.1</a></p>
+                        <p>Meeting ID: 713 7683 9004 Passcode: 111</p>
+                        <p>Įrašyta į birželio 02d. pamoką.</p>
+                        <p>Atlikti iki birželio 04d.</p>
+                    </div>
+                </div>
+                <div class="event-item math">
+                    <span class="icon"><i class="fas fa-file-alt"></i></span>
+                    <div class="content">
+                        <h4>Matematika</h4>
+                        <p>Baigti namuose</p>
+                        <p>Įrašyta į birželio 03d. pamoką.</p>
+                        <p>Atlikti iki birželio 05d.</p>
+                    </div>
+                </div>
+                <div class="event-item physical">
+                    <span class="icon"><i class="fas fa-file-alt"></i></span>
+                    <div class="content">
+                        <h4>Fizinis ugdymas</h4>
+                        <p>Įrašyta į gegužės 14d. pamoką.</p>
+                    </div>
+                </div>
             </div>
-            <div class="icons">
-                <span class="icon">🔔</span>
-                <span class="icon">👤</span>
-                <span class="icon">✉️ <sup>2</sup></span>
+
+            <div class="event-day">
+                <h3 class="yesterday">02 Pirmadienis</h3>
+                <p>Nėra įvykių, atitinkančių vakarykštę datą (tik pavyzdys, galite pridėti realių duomenų)</p>
             </div>
         </div>
-    </header>
-
-    <section class="news">
-        <div class="container">
-            <h1>Naujausi įvykiai</h1>
-            <div class="date-tabs">
-                <button class="tab active">03 Antradienis <span class="today">Šiandien</span></button>
-                <button class="tab">02 Pirmadienis</button>
-            </div>
-
-            <div class="news-item">
-                <h3>Užsienio kalba (prancūzų)</h3>
-                <p><a href="https://anyfrench.com/lecture/ma-vie-au-quotidien">https://anyfrench.com/lecture/ma-vie-au-quotidien</a></p>
-                <p>Įrašyta į birželio 03d. pamoka.</p>
-                <p>Atlikti iki birželio 05d.</p>
-            </div>
-
-            <div class="news-item">
-                <h3>Užsienio kalba (anglų)</h3>
-                <p>Katherine Sychenkova is inviting you to a scheduled Zoom meeting. Join Zoom Meeting <a href="https://us04web.zoom.us/j/71377683004?pwd=5TEFJnWxIzjRwy6HUHUIYEUO1twq.1">https://us04web.zoom.us/j/71377683004?pwd=5TEFJnWxIzjRwy6HUHUIYEUO1twq.1</a></p>
-                <p>Meeting ID: 713 7683 9004 Passcode: 111</p>
-                <p>Įrašyta į birželio 02d. pamoka.</p>
-                <p>Atlikti iki birželio 04d.</p>
-            </div>
-
-            <div class="news-item">
-                <h3>Matematika</h3>
-                <p>Baigti namuose</p>
-                <p>Įrašyta į birželio 03d. pamoka.</p>
-                <p>Atlikti iki birželio 05d.</p>
-            </div>
-
-            <div class="news-item grade">
-                <h3>Fizinis ugdymas</h3>
-                <p class="grade-value">10</p>
-                <p>Įrašyta į gegužės 14d. pamoka.</p>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>© 2025 UAB „Tavo mokykla“.</p>
-        </div>
-    </footer>
-
-    <script src="js/main.js"></script>
+    </div>
 </body>
 </html>
