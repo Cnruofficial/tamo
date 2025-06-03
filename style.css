@@ -2,11 +2,12 @@
 
 /* Bendri stiliai */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* Bandymas atkartoti šriftą */
     margin: 0;
     padding: 0;
-    background-color: #f0f2f5; /* Šviesiai pilkas fonas */
+    background-color: #f0f2f5; /* Šviesiai pilkas fonas kaip paveikslėlyje */
     color: #333;
+    line-height: 1.6;
 }
 
 .container {
@@ -30,6 +31,7 @@ body {
 
 .header .logo img {
     height: 40px; /* Pritaikykite pagal savo logotipą */
+    vertical-align: middle; /* Kad logotipas būtų sulygiuotas su tekstu ar kitais elementais, jei būtų */
 }
 
 .header .nav-buttons {
@@ -39,27 +41,31 @@ body {
 
 .header .nav-button {
     padding: 8px 15px;
-    background-color: #f7931e; /* Tamo oranžinė spalva */
+    background-color: #f7931e; /* Tamo oranžinė spalva, atrodanti kaip prisijungti mygtukas */
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     text-decoration: none;
     font-weight: bold;
+    font-size: 14px; /* Šiek tiek didesnis šriftas mygtuke */
 }
 
 .header .menu-icon {
     font-size: 24px;
     cursor: pointer;
+    color: #666; /* Pilkesnė meniu ikona */
 }
 
-/* Puslapio turinys */
+/* Puslapio turinys bendrai */
 h1, h2 {
     color: #0056b3; /* Mėlyna Tamo spalva */
+    font-weight: normal; /* Sumažintas šrifto storis */
+    margin-bottom: 20px;
 }
 
 p {
-    line-height: 1.6;
+    margin-bottom: 15px;
 }
 
 .button {
@@ -85,10 +91,13 @@ p {
     text-align: center;
     margin-bottom: 20px;
     color: #0056b3;
+    font-size: 24px; /* Didesnis antraštės šriftas */
+    font-weight: bold;
 }
 
 .security-section p {
     margin-bottom: 15px;
+    font-size: 15px; /* Standartinio teksto dydis */
 }
 
 .learn-more-button {
@@ -98,6 +107,7 @@ p {
     color: #007bff;
     text-decoration: none;
     font-weight: bold;
+    font-size: 16px;
 }
 
 .learn-more-button:hover {
@@ -115,15 +125,17 @@ p {
 
 .promo-banner h3 {
     margin-top: 0;
+    font-size: 20px;
+    font-weight: normal;
 }
 
 .promo-banner img {
     max-width: 100%;
     height: auto;
     margin-top: 15px;
-    /* Galite pridėti stilistiką, kad atrodytų kaip paveikslėlyje, pvz.
+    /* Filtrų panaudojimas, kad atrodytų kaip paveikslėlyje */
     filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
-    */
+    border-radius: 5px; /* Galima pridėti šiek tiek apvalumo kampams */
 }
 
 /* Prisijungimo forma */
@@ -140,16 +152,19 @@ p {
 .login-form h2 {
     margin-bottom: 30px;
     color: #0056b3;
+    font-size: 22px;
+    font-weight: bold;
 }
 
 .login-form input[type="text"],
 .login-form input[type="password"] {
-    width: calc(100% - 20px);
-    padding: 10px;
+    width: calc(100% - 22px); /* Sumažinta, kad būtų vietos padding'ui ir border'iui */
+    padding: 12px 10px; /* Didesnis padding'as */
     margin-bottom: 15px;
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 16px;
+    box-sizing: border-box; /* Svarbu, kad padding ir border nepadidintų bendro pločio */
 }
 
 .login-form .login-button {
@@ -162,6 +177,8 @@ p {
     font-size: 18px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    font-weight: bold;
+    text-transform: uppercase; /* Tekstas didžiosiomis raidėmis */
 }
 
 .login-form .login-button:hover {
@@ -173,6 +190,7 @@ p {
     margin-top: 15px;
     color: #007bff;
     text-decoration: none;
+    font-size: 14px;
 }
 
 .login-form a:hover {
@@ -190,9 +208,14 @@ p {
     margin: 0 5px;
     color: #007bff;
     text-decoration: none;
+    font-size: 12px; /* Mažesnis šriftas pėdutės nuorodoms */
 }
 .login-footer a:hover {
     text-decoration: underline;
+}
+.login-footer p {
+    font-size: 12px;
+    margin-top: 10px;
 }
 
 /* Naujausių įvykių puslapis */
@@ -213,7 +236,20 @@ p {
 .events-header .nav-icons span {
     font-size: 24px; /* Ikonių dydis */
     color: #666;
+    position: relative;
 }
+
+.events-header .nav-icons span sup {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    font-size: 0.6em;
+    padding: 2px 4px;
+    border-radius: 50%;
+    background-color: red;
+    color: white;
+}
+
 
 .events-section {
     padding: 20px 0;
@@ -232,6 +268,7 @@ p {
     color: #0056b3;
     font-size: 1.2em;
     position: relative;
+    font-weight: bold;
 }
 
 .event-day h3.today::after {
@@ -242,6 +279,7 @@ p {
     border-radius: 5px;
     font-size: 0.8em;
     margin-left: 10px;
+    vertical-align: middle; /* Kad sulygiuotų su tekstu */
 }
 
 .event-day h3.yesterday::after {
@@ -252,33 +290,38 @@ p {
     border-radius: 5px;
     font-size: 0.8em;
     margin-left: 10px;
+    vertical-align: middle;
 }
 
 .event-item {
     display: flex;
-    align-items: flex-start;
+    align-items: flex-start; /* Kad ikona būtų viršuje, o ne centre */
     padding: 15px;
     background-color: #f9f9f9;
     border-radius: 8px;
     margin-bottom: 15px;
     border-left: 5px solid #007bff; /* Mėlyna juosta kairėje */
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05); /* Šiek tiek šešėlio */
 }
 
+.event-item .icon {
+    font-size: 24px;
+    margin-right: 15px;
+    color: #007bff; /* Standartinė ikonos spalva */
+    padding-top: 2px; /* Šiek tiek pakelti, kad geriau atrodytų su tekstu */
+}
+
+/* Specifinės spalvos pagal nuotrauką */
 .event-item.math {
-    border-left-color: #6c757d; /* Pilka matematijai */
+    border-left-color: #8c8c8c; /* Pilka matematijai */
 }
 
 .event-item.physical {
     border-left-color: #28a745; /* Žalia fiziniam ugdymui */
 }
 
-.event-item .icon {
-    font-size: 24px;
-    margin-right: 15px;
-    color: #007bff;
-}
 .event-item.physical .icon {
-    color: #28a745;
+    color: #28a745; /* Žalia ikona fiziniam ugdymui */
 }
 
 
@@ -286,6 +329,8 @@ p {
     margin-top: 0;
     margin-bottom: 5px;
     color: #333;
+    font-size: 16px;
+    font-weight: bold;
 }
 
 .event-item .content p {
