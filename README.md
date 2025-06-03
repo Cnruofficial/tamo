@@ -1,14 +1,12 @@
-# tamo-klonas
+# TAMO Klonas
 
-
-Statinė svetainės šablonas, įkvėptas www.tamo.lt dizaino ir funkcionalumo. Sukurta naudojant HTML, CSS ir JavaScript, skirta talpinimui GitHub Pages.
+Statinė svetainė, įkvėpta www.tamo.lt dizaino ir funkcionalumo. Sukurta naudojant HTML, CSS ir JavaScript, skirta talpinimui GitHub Pages.
 
 ## Savybės
-- Reaguojantis dizainas su švariu, moderniu UI
-- Pagrindinis puslapis su hero sekcija
-- Prisijungimo puslapis su formos validacija
-- Skydelis su kortelėmis namų darbams, pažymiams ir pranešimams
-- Stilizuota pagal švietimo platformas, tokias kaip TAMO
+- Reaguojantis dizainas, atkartojantis TAMO stilių
+- Pagrindinis puslapis su slaptažodžio saugos instrukcija
+- Prisijungimo puslapis su forma
+- Naujienų puslapis su įvykių sąrašu (pamokos, pažymiai)
 
 ## Sąranka
 1. Klonuokite repozitoriją:
