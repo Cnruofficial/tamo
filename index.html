@@ -1,110 +1,44 @@
-<!DOCTYPE html><html lang="lt">
+<!DOCTYPE html>
+<html lang="lt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TAMO Klonas</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Roboto', sans-serif;
-      background-color: #f9f9f9;
-    }
-    header {
-      background-color: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 20px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    .logo {
-      display: flex;
-      align-items: center;
-    }
-    .logo img {
-      height: 40px;
-      margin-right: 10px;
-    }
-    .actions {
-      display: flex;
-      gap: 10px;
-    }
-    .button {
-      background-color: #f90;
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      border-radius: 4px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    .container {
-      padding: 20px;
-    }
-    h1 {
-      font-size: 24px;
-      color: #004d66;
-    }
-    .event {
-      background-color: white;
-      border-left: 4px solid #00a2d3;
-      margin: 15px 0;
-      padding: 15px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    }
-    .event h3 {
-      margin: 0 0 5px 0;
-    }
-    .event p {
-      margin: 5px 0;
-    }
-    .footer {
-      background: #004d66;
-      color: white;
-      text-align: center;
-      padding: 10px;
-      margin-top: 40px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAMO - Susipažinkite su slaptažodžio saugumo instrukcija!</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-  <header>
-    <div class="logo">
-      <img src="https://www.tamo.lt/images/tamo-logo.png" alt="TAMO Logo">
-      <strong>TAMO</strong>
+    <div class="header">
+        <div class="logo">
+            <a href="index.html">
+                <img src="http://googleusercontent.com/image_collection/image_retrieval/1543286545049328573" alt="TAMO Logo">
+                </a>
+        </div>
+        <div class="nav-buttons">
+            <a href="login.html" class="nav-button">Prisijungti</a>
+            <span class="menu-icon"><i class="fas fa-bars"></i></span>
+        </div>
     </div>
-    <div class="actions">
-      <button class="button">Prisijungti</button>
+
+    <div class="container">
+        <div class="security-section">
+            <h2>SUSIPAŽINKITE SU TAMO SLAPTAŽODŽIO SAUGUMO INSTRUKCIJA!</h2>
+            <p>
+                Kodėl reikia saugoti savo TAMO prisijungimo duomenis?
+            </p>
+            <p>
+                Atlikti tai tinkamai yra labai svarbu, nes tik taip galite apsisaugoti nuo nepageidaujamų pašalinių asmenų prisijungimo ir išvengti nepageidaujamų veiksmų Jūsų TAMO e. dienyno paskyroje.
+            </p>
+            <p>
+                Kviečiame susipažinti kokius 4 žingsnius naudinga atlikti norint tai užtikrinti.
+            </p>
+            <a href="#" class="learn-more-button">Sužinoti daugiau ></a>
+        </div>
+
+        <div class="promo-banner">
+            <h3>ĮSITIKINKITE, KAD JŪSŲ PASKYROS SLAPTAŽODIS YRA SAUGUS!</h3>
+            <img src="https://www.tamo.lt/wp-content/uploads/2021/09/slaptazodis-saugus.png" alt="Slaptažodžio saugumo iliustracija">
+            </div>
     </div>
-  </header>  <div class="container">
-    <h1>Naujausi įvykiai</h1><div class="event">
-  <h3>Užsienio kalba (prancūzų)</h3>
-  <p>https://anyfrench.com/lecture/ma-vie-au-quotidien</p>
-  <p>Įrašyta į <strong>birželio 03d.</strong> pamoką. Atlikti iki <strong>birželio 05d.</strong></p>
-</div>
-
-<div class="event">
-  <h3>Užsienio kalba (anglų)</h3>
-  <p>Katherine Sylchenkova is inviting you to a scheduled Zoom meeting.<br>
-  <a href="https://us04web.zoom.us/j/71376839004?pwd=sTEfJnWxIizJrwY6HUHlITYeuU11wq.1">Zoom nuoroda</a><br>
-  Meeting ID: 713 7683 9004 Passcode: 111</p>
-  <p>Įrašyta į <strong>birželio 02d.</strong> pamoką. Atlikti iki <strong>birželio 04d.</strong></p>
-</div>
-
-<div class="event">
-  <h3>Matematika</h3>
-  <p>Baigti namuose</p>
-  <p>Įrašyta į <strong>birželio 03d.</strong> pamoką. Atlikti iki <strong>birželio 05d.</strong></p>
-</div>
-
-<div class="event">
-  <h3>Fizinis ugdymas</h3>
-  <p>Įrašyta į <strong>gegužės 14d.</strong> pamoką.</p>
-</div>
-
-  </div>  <div class="footer">
-    Įsitikinkite, kad jūsų paskyros slaptažodis yra saugus!
-  </div>
 </body>
 </html>
