@@ -4,10 +4,9 @@ document.getElementById('prisijungimo-forma')?.addEventListener('submit', (e) =>
     const vartotojas = document.getElementById('vartotojas').value;
     const slaptazodis = document.getElementById('slaptazodis').value;
 
-    // Imituojamas prisijungimas (pakeiskite tikru autentifikavimu)
+    // Imituojamas prisijungimas
     if (vartotojas && slaptazodis) {
-        alert('Prisijungimas sėkmingas! Perkeliame į skydelį...');
-        window.location.href = 'skydelis.html';
+        window.location.href = 'naujienos.html';
     } else {
         alert('Prašome užpildyti visus laukus.');
     }
