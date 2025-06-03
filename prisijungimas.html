@@ -5,39 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prisijungti - TAMO Klonas</title>
     <link rel="stylesheet" href="css/stiliai.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <div class="container">
-            <div class="logo">TAMO Klonas</div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Pagrindinis</a></li>
-                </ul>
-            </nav>
+            <div class="logo">
+                <span class="logo-text">TAM<span class="logo-eyes">O</span></span>
+                <span class="flag">🇺🇦</span>
+            </div>
         </div>
     </header>
 
-    <section class="prisijungimas">
+    <section class="login">
         <div class="container">
-            <h2>Prisijungti</h2>
+            <h2>Naudotojo prisijungimas</h2>
             <form id="prisijungimo-forma">
                 <div class="form-group">
-                    <label for="vartotojas">Vartotojo vardas</label>
-                    <input type="text" id="vartotojas" name="vartotojas" required>
+                    <label for="vartotojas">Naudotojo vardas</label>
+                    <input type="text" id="vartotojas" name="vartotojas" placeholder="Naudotojo vardas" required>
                 </div>
                 <div class="form-group">
                     <label for="slaptazodis">Slaptažodis</label>
-                    <input type="password" id="slaptazodis" name="slaptazodis" required>
+                    <input type="password" id="slaptazodis" name="slaptazodis" placeholder="Slaptažodis" required>
                 </div>
-                <button type="submit" class="btn">Prisijungti</button>
+                <button type="submit" class="btn login-btn">Prisijungti</button>
             </form>
+            <p class="register-link">Neturi TAMO paskyros? <a href="#">Registruokis</a></p>
+            <p class="forgot-link"><a href="#">Nepavyksta prisijungti?</a></p>
+            <p class="forgot-link"><a href="#">Pamiršote prisijungimo duomenis?</a></p>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>© 2025 TAMO Klonas. Visos teisės saugomos.</p>
+            <p><a href="#">Privatumo politika</a> | <a href="#">Naudojimo taisyklės</a></p>
+            <p>Integracijos</p>
+            <p>© 2025 UAB „Tavo mokykla“.</p>
         </div>
     </footer>
 
