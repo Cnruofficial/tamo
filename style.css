@@ -1,373 +1,566 @@
-/* style.css */
-
-/* Bendri stiliai */
-body {
-    font-family: 'Helvetica Neue', Arial, sans-serif; /* Bandymas atkartoti šriftą */
+/* Bendri elementų stiliai */
+* {
     margin: 0;
     padding: 0;
-    background-color: #f0f2f5; /* Šviesiai pilkas fonas kaip paveikslėlyje */
-    color: #333;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
+    color: #333;
 }
 
-.container {
-    max-width: 900px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
+/* Logo stiliai */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-text {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #7bb3d3;
+    letter-spacing: 2px;
+}
+
+.owl {
+    width: 40px;
+    height: 40px;
+    background: #ff9500;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.owl::before {
+    content: '🦉';
+    font-size: 20px;
+}
+
+/* PRISIJUNGIMO PUSLAPIO STILIAI */
+.login-page {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 450px;
+}
+
+.login-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    text-align: center;
+    animation: slideUp 0.6s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.logo-section {
+    margin-bottom: 2rem;
+}
+
+.logo-section h1 {
+    color: #4a90e2;
+    margin: 1rem 0 0.5rem;
+    font-size: 1.8rem;
+}
+
+.logo-section p {
+    color: #666;
+    font-size: 1rem;
+}
+
+.login-form {
+    text-align: left;
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #555;
+    font-weight: 500;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e1e1e1;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}
+
+.user-type {
+    margin-bottom: 1.5rem;
+}
+
+.user-type label {
+    color: #555;
+    font-weight: 500;
+    margin-bottom: 0.8rem;
+    display: block;
+}
+
+.radio-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
 }
 
-/* Antraštė (Header) */
+.radio-option:hover {
+    background-color: #f8f9fa;
+}
+
+.radio-option input[type="radio"] {
+    width: auto;
+    margin: 0;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 1.5rem;
+}
+
+.login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(74, 144, 226, 0.3);
+}
+
+.login-help {
+    margin-bottom: 2rem;
+    color: #666;
+}
+
+.login-help a {
+    color: #4a90e2;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.login-help a:hover {
+    color: #357abd;
+}
+
+.login-help .separator {
+    margin: 0 10px;
+    color: #ccc;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: #888;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #4a90e2;
+}
+
+.copyright {
+    color: #999;
+    font-size: 0.8rem;
+}
+
+/* DIENYNO PUSLAPIO STILIAI */
+.diary-page {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
 .header {
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-    background-color: #fff;
-    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
-.header .logo img {
-    height: 40px; /* Pritaikykite pagal savo logotipą */
-    vertical-align: middle; /* Kad logotipas būtų sulygiuotas su tekstu ar kitais elementais, jei būtų */
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #666;
 }
 
-.header .nav-buttons {
+.user-name {
+    font-size: 0.95rem;
+}
+
+.separator {
+    color: #ccc;
+}
+
+.department {
+    font-size: 0.9rem;
+    color: #888;
+}
+
+.logout-btn {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+    background: #c82333;
+    transform: translateY(-1px);
+}
+
+.container {
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.welcome-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.welcome-card h1 {
+    color: #4a90e2;
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+}
+
+.welcome-card p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.sidebar {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    height: fit-content;
+}
+
+.class-selector {
+    margin-bottom: 2rem;
+}
+
+.class-selector h3 {
+    color: #4a90e2;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.class-list {
+    list-style: none;
+}
+
+.class-item {
+    padding: 1rem;
+    margin-bottom: 0.8rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+    font-size: 0.95rem;
+}
+
+.class-item:hover, .class-item.active {
+    background: #e3f2fd;
+    border-left-color: #4a90e2;
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.15);
+}
+
+.stats-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.stats-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.quick-actions {
+    margin-top: 2rem;
+}
+
+.quick-actions h4 {
+    color: #4a90e2;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.action-btn {
+    width: 100%;
+    padding: 10px 15px;
+    background: #f8f9fa;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 8px;
+    transition: all 0.3s ease;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+.action-btn:hover {
+    background: #e9ecef;
+    border-color: #4a90e2;
+    transform: translateX(3px);
+}
+
+.main-content {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.grades-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #f0f0f0;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.grades-header h2 {
+    color: #4a90e2;
+    font-size: 1.8rem;
+}
+
+.header-actions {
     display: flex;
     gap: 10px;
 }
 
-.header .nav-button {
-    padding: 8px 15px;
-    background-color: #f7931e; /* Tamo oranžinė spalva, atrodanti kaip prisijungti mygtukas */
-    color: white;
+.subject-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.subject-tab {
+    padding: 12px 24px;
+    background: #f8f9fa;
     border: none;
-    border-radius: 5px;
+    border-radius: 25px;
     cursor: pointer;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 14px; /* Šiek tiek didesnis šriftas mygtuke */
+    transition: all 0.3s ease;
+    font-weight: 500;
+    font-size: 0.95rem;
 }
 
-.header .menu-icon {
-    font-size: 24px;
-    cursor: pointer;
-    color: #666; /* Pilkesnė meniu ikona */
-}
-
-/* Puslapio turinys bendrai */
-h1, h2 {
-    color: #0056b3; /* Mėlyna Tamo spalva */
-    font-weight: normal; /* Sumažintas šrifto storis */
-    margin-bottom: 20px;
-}
-
-p {
-    margin-bottom: 15px;
-}
-
-.button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #007bff; /* Mėlyna mygtuko spalva */
+.subject-tab.active {
+    background: #4a90e2;
     color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
 }
 
-.button:hover {
-    background-color: #0056b3;
+.subject-tab:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-/* Saugumo instrukcijos sekcija */
-.security-section {
-    padding: 20px 0;
+.notification {
+    background: #d4edda;
+    border-left: 4px solid #28a745;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 0 8px 8px 0;
+    animation: slideIn 0.5s ease;
 }
 
-.security-section h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #0056b3;
-    font-size: 24px; /* Didesnis antraštės šriftas */
-    font-weight: bold;
+@keyframes slideIn {
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
 }
 
-.security-section p {
-    margin-bottom: 15px;
-    font-size: 15px; /* Standartinio teksto dydis */
+.table-container {
+    overflow-x: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-.learn-more-button {
-    display: block;
-    width: fit-content;
-    margin: 20px auto;
-    color: #007bff;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 16px;
-}
-
-.learn-more-button:hover {
-    text-decoration: underline;
-}
-
-.promo-banner {
-    text-align: center;
-    background-color: #0056b3; /* Tamo mėlyna spalva */
-    color: white;
-    padding: 20px;
-    border-radius: 8px;
-    margin-top: 30px;
-}
-
-.promo-banner h3 {
-    margin-top: 0;
-    font-size: 20px;
-    font-weight: normal;
-}
-
-.promo-banner img {
-    max-width: 100%;
-    height: auto;
-    margin-top: 15px;
-    /* Filtrų panaudojimas, kad atrodytų kaip paveikslėlyje */
-    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
-    border-radius: 5px; /* Galima pridėti šiek tiek apvalumo kampams */
-}
-
-/* Prisijungimo forma */
-.login-form {
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 30px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.login-form h2 {
-    margin-bottom: 30px;
-    color: #0056b3;
-    font-size: 22px;
-    font-weight: bold;
-}
-
-.login-form input[type="text"],
-.login-form input[type="password"] {
-    width: calc(100% - 22px); /* Sumažinta, kad būtų vietos padding'ui ir border'iui */
-    padding: 12px 10px; /* Didesnis padding'as */
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 16px;
-    box-sizing: border-box; /* Svarbu, kad padding ir border nepadidintų bendro pločio */
-}
-
-.login-form .login-button {
+.grades-table {
     width: 100%;
-    padding: 12px;
-    background-color: #79ace7; /* Mėlynesnė mygtuko spalva prisijungimo puslapyje */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 18px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-weight: bold;
-    text-transform: uppercase; /* Tekstas didžiosiomis raidėmis */
+    border-collapse: collapse;
+    background: white;
+    min-width: 800px;
 }
 
-.login-form .login-button:hover {
-    background-color: #5b8cd8;
-}
-
-.login-form a {
-    display: block;
-    margin-top: 15px;
-    color: #007bff;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-.login-form a:hover {
-    text-decoration: underline;
-}
-
-.login-footer {
-    margin-top: 30px;
-    font-size: 0.9em;
-    color: #666;
-}
-
-.login-footer a {
-    display: inline-block;
-    margin: 0 5px;
-    color: #007bff;
-    text-decoration: none;
-    font-size: 12px; /* Mažesnis šriftas pėdutės nuorodoms */
-}
-.login-footer a:hover {
-    text-decoration: underline;
-}
-.login-footer p {
-    font-size: 12px;
-    margin-top: 10px;
-}
-
-/* Naujausių įvykių puslapis */
-.events-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #fff;
+.grades-table th,
+.grades-table td {
+    padding: 12px 8px;
+    text-align: center;
     border-bottom: 1px solid #eee;
-}
-
-.events-header .nav-icons {
-    display: flex;
-    gap: 15px;
-}
-
-.events-header .nav-icons span {
-    font-size: 24px; /* Ikonių dydis */
-    color: #666;
-    position: relative;
-}
-
-.events-header .nav-icons span sup {
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    font-size: 0.6em;
-    padding: 2px 4px;
-    border-radius: 50%;
-    background-color: red;
-    color: white;
-}
-
-
-.events-section {
-    padding: 20px 0;
-}
-
-.events-list {
-    margin-top: 20px;
-}
-
-.event-day {
-    margin-bottom: 30px;
-}
-
-.event-day h3 {
-    margin-bottom: 15px;
-    color: #0056b3;
-    font-size: 1.2em;
-    position: relative;
-    font-weight: bold;
-}
-
-.event-day h3.today::after {
-    content: "ŠIANDIEN";
-    background-color: #f7931e;
-    color: white;
-    padding: 3px 8px;
-    border-radius: 5px;
-    font-size: 0.8em;
-    margin-left: 10px;
-    vertical-align: middle; /* Kad sulygiuotų su tekstu */
-}
-
-.event-day h3.yesterday::after {
-    content: "VAKAR";
-    background-color: #ccc;
-    color: white;
-    padding: 3px 8px;
-    border-radius: 5px;
-    font-size: 0.8em;
-    margin-left: 10px;
     vertical-align: middle;
 }
 
-.event-item {
-    display: flex;
-    align-items: flex-start; /* Kad ikona būtų viršuje, o ne centre */
-    padding: 15px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    border-left: 5px solid #007bff; /* Mėlyna juosta kairėje */
-    box-shadow: 0 1px 2px rgba(0,0,0,0.05); /* Šiek tiek šešėlio */
+.grades-table th {
+    background: #f8f9fa;
+    font-weight: 600;
+    color: #4a90e2;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
-.event-item .icon {
-    font-size: 24px;
-    margin-right: 15px;
-    color: #007bff; /* Standartinė ikonos spalva */
-    padding-top: 2px; /* Šiek tiek pakelti, kad geriau atrodytų su tekstu */
+.grades-table tr:hover {
+    background: #f8f9fa;
 }
 
-/* Specifinės spalvos pagal nuotrauką */
-.event-item.math {
-    border-left-color: #8c8c8c; /* Pilka matematijai */
+.student-name {
+    text-align: left !important;
+    min-width: 180px;
+    font-weight: 500;
 }
 
-.event-item.physical {
-    border-left-color: #28a745; /* Žalia fiziniam ugdymui */
-}
-
-.event-item.physical .icon {
-    color: #28a745; /* Žalia ikona fiziniam ugdymui */
-}
-
-
-.event-item .content h4 {
-    margin-top: 0;
-    margin-bottom: 5px;
-    color: #333;
-    font-size: 16px;
+.grade-input {
+    width: 60px;
+    padding: 6px 8px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    text-align: center;
     font-weight: bold;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
 }
 
-.event-item .content p {
-    margin-bottom: 5px;
-    font-size: 0.95em;
-    color: #555;
+.grade-input:focus {
+    outline: none;
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+    transform: scale(1.05);
 }
 
-.event-item .content a {
-    color: #007bff;
+.grade-10 { background: #d4edda; color: #155724; border-color: #28a745; }
+.grade-9 { background: #d1ecf1; color: #0c5460; border-color: #17a2b8; }
+.grade-8 { background: #fff3cd; color: #856404; border-color: #ffc107; }
+.grade-7 { background: #f8d7da; color: #721c24; border-color: #dc3545; }
+.grade-6 { background: #f5c6cb; color: #721c24; border-color: #dc3545; }
+
+.average-cell {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #4a90e2;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
     text-decoration: none;
+    display: inline-block;
+    font-size: 0.95rem;
 }
 
-.event-item .content a:hover {
-    text-decoration: underline;
+.btn-primary {
+    background: #4a90e2;
+    color: white;
 }
 
-/* Reagavimas į mažus ekranus */
-@media (max-width: 768px) {
-    .container {
-        margin: 10px;
-        padding: 15px;
-    }
-
-    .header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .header .nav-buttons {
-        margin-top: 10px;
-        width: 100%;
-        justify-content: center;
-    }
-
-    .login-form {
-        margin: 20px auto;
-        padding: 20px;
-    }
+.btn-primary:hover {
+    background: #357abd;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
 }
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+    transform: translateY(-2px);
+    box
