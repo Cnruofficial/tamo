@@ -4,70 +4,103 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TAMO - Prisijungimas</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #f5f5f5;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+        }
+        .header img {
+            height: 40px;
+        }
+        .header button {
+            background-color: #f5a623;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+        }
+        h1 {
+            color: #4a90e2;
+            font-size: 24px;
+        }
+        .info-box {
+            background-color: #e6f0fa;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+        .login-form {
+            margin-top: 30px;
+        }
+        .login-form input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .login-form button {
+            background-color: #4a90e2;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        a {
+            color: #4a90e2;
+            text-decoration: none;
+        }
+    </style>
 </head>
-<body class="login-page">
-    <div class="login-container">
-        <div class="login-card">
-            <div class="logo-section">
-                <div class="logo">
-                    <span class="logo-text">TAMO</span>
-                    <div class="owl"></div>
-                </div>
-                <h1>Mokyklos dienynas</h1>
-                <p>Prisijunkite prie savo paskyros</p>
-            </div>
-
-            <form class="login-form" onsubmit="handleLogin(event)">
-                <div class="input-group">
-                    <label for="username">Naudotojo vardas</label>
-                    <input type="text" id="username" name="username" placeholder="Įveskite naudotojo vardą" required>
-                </div>
-
-                <div class="input-group">
-                    <label for="password">Slaptažodis</label>
-                    <input type="password" id="password" name="password" placeholder="Įveskite slaptažodį" required>
-                </div>
-
-                <div class="user-type">
-                    <label>Prisijungimo tipas:</label>
-                    <div class="radio-group">
-                        <label class="radio-option">
-                            <input type="radio" name="userType" value="teacher" checked>
-                            <span>Mokytojas</span>
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="userType" value="student">
-                            <span>Mokinys</span>
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="userType" value="parent">
-                            <span>Tėvas/Motina</span>
-                        </label>
-                    </div>
-                </div>
-
-                <button type="submit" class="login-btn">PRISIJUNGTI</button>
-            </form>
-
-            <div class="login-help">
-                <a href="#" onclick="showForgotPassword()">Pamiršote slaptažodį?</a>
-                <span>|</span>
-                <a href="#" onclick="showRegistration()">Registruotis</a>
-            </div>
-
-            <div class="footer-links">
-                <a href="#" onclick="showPrivacyPolicy()">Privatumo politika</a>
-                <a href="#" onclick="showTerms()">Naudojimo taisyklės</a>
-                <a href="#" onclick="showIntegrations()">Integracijos</a>
-            </div>
-
-            <div class="copyright">
-                ©2025 UAB „Tavo mokykla"
-            </div>
+<body>
+    <div class="header">
+        <img src="tamo_logo.png" alt="TAMO Logo">
+        <button>Prisijungti</button>
+    </div>
+    <div class="container">
+        <h1>SUSIPAŽINKITE SU TAMO SLAPTAŽODŽIO SAUGUMO INSTRUKCIJA!</h1>
+        <div class="info-box">
+            <p><b>Kodėl reikėtų saugoti savo TAMO prisijungimo duomenis?</b></p>
+            <p>Atlikti tai tinkamai yra labai svarbu, nes tik taip galima apsisaugoti nuo nepageidaujamų pašalinių asmenų prisijungimo ir išvengti nepageidaujamų veiksmų Jūsų TAMO e. dienyno paskyroje.</p>
+            <p>Kviečiame susipažinti kokius 4 žingsnius naudinga atlikti norint tai užtikrinti.</p>
+            <p><a href="#">Sužinoti daugiau &gt;</a></p>
+        </div>
+        <div class="login-form">
+            <h2>Naudotojo prisijungimas</h2>
+            <input type="text" id="username" placeholder="Naudotojo vardas" value="Robertas Tomutis">
+            <input type="password" id="password" placeholder="Slaptažodis" value="tomutis123">
+            <button onclick="login()">PRISIJUNGTI</button>
+            <p>Neturi TAMO paskyros? <a href="#">Registruokis</a></p>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === "Robertas Tomutis" && password === "tomutis123") {
+                window.location.href = "dienynas.html";
+            } else {
+                alert("Neteisingas vardas arba slaptažodis!");
+            }
+        }
+    </script>
 </body>
 </html>
