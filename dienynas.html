@@ -3,153 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dienynas TAMO - Mokytojo sąsaja</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Dienynas - TAMO</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+        }
+        .header img {
+            height: 40px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        .schedule-header {
+            display: flex;
+            justify-content: space-between;
+            background-color: #e6f0fa;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .schedule-header button {
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        .students {
+            margin-top: 30px;
+        }
+        .students ul {
+            list-style: none;
+            padding: 0;
+        }
+        .students li {
+            padding: 5px 0;
+        }
+    </style>
 </head>
-<body class="diary-page">
-    <header class="header">
-        <div class="logo">
-            <span class="logo-text">TAMO</span>
-            <div class="owl"></div>
-        </div>
-        <div class="user-info">
-            <span class="user-name">Mokytoja: <strong>Ona Petraitienė</strong></span>
-            <span class="separator">|</span>
-            <span class="department">Matematikos katedra</span>
-            <button class="logout-btn" onclick="logout()">Atsijungti</button>
-        </div>
-    </header>
-
+<body>
+    <div class="header">
+        <img src="tamo_logo.png" alt="TAMO Logo">
+        <div>ŠI SAVAITĖ</div>
+    </div>
     <div class="container">
-        <div class="welcome-card">
-            <h1>Mokytojo dienynas</h1>
-            <p>Tvarkykite savo mokinių pažymius ir stebėkite jų pažangą</p>
+        <div class="schedule-header">
+            <button>&lt;</button>
+            <div>Pr &nbsp; An &nbsp; Tr &nbsp; Kt &nbsp; Pn</div>
+            <button>&gt;</button>
         </div>
+        <h2>Šiandienos pamokos - 2025-06-04</h2>
+        <table>
+            <tr>
+                <th>1</th>
+                <td>08:00 - 08:45</td>
+                <td>Lietuvių kalba ir literatūra (Vida Jakubavičienė)</td>
+            </tr>
+            <tr>
+                <th>2</th>
+                <td>08:55 - 09:40</td>
+                <td>Užsienio kalba (anglų) (Kateryna Sylchenkova)</td>
+            </tr>
+            <tr>
+                <th>3</th>
+                <td>09:50 - 10:35</td>
+                <td>Geografija (Tatjana Jarašauskienė)</td>
+            </tr>
+            <tr>
+                <th>4</th>
+                <td>10:55 - 11:40</td>
+                <td>Matematika (Robertas Tamutis)</td>
+            </tr>
+            <tr>
+                <th>5</th>
+                <td>12:00 - 12:45</td>
+                <td>Lietuvių kalba ir literatūra (Vida Jakubavičienė)</td>
+            </tr>
+            <tr>
+                <th>6</th>
+                <td>12:55 - 13:40</td>
+                <td>Užsienio kalba (anglų) (Kateryna Sylchenkova)</td>
+            </tr>
+            <tr>
+                <th>7</th>
+                <td>13:55 - 14:40</td>
+                <td>Fizinis ugdymas (Sada Bukšnienė)</td>
+            </tr>
+        </table>
 
-        <div class="dashboard">
-            <div class="sidebar">
-                <div class="class-selector">
-                    <h3>Mano klasės</h3>
-                    <ul class="class-list">
-                        <li class="class-item active" onclick="selectClass('5A')">5A klasė (28 mokiniai)</li>
-                        <li class="class-item" onclick="selectClass('5B')">5B klasė (26 mokiniai)</li>
-                        <li class="class-item" onclick="selectClass('6A')">6A klasė (24 mokiniai)</li>
-                        <li class="class-item" onclick="selectClass('7C')">7C klasė (22 mokiniai)</li>
-                    </ul>
-                </div>
-
-                <div class="stats-card">
-                    <div class="stats-number" id="totalStudents">28</div>
-                    <div>Mokinių skaičius</div>
-                </div>
-
-                <div class="stats-card">
-                    <div class="stats-number" id="avgGrade">7.8</div>
-                    <div>Vidutinis pažymys</div>
-                </div>
-
-                <div class="quick-actions">
-                    <h4>Greiti veiksmai</h4>
-                    <button class="action-btn" onclick="exportGrades()">📊 Eksportuoti pažymius</button>
-                    <button class="action-btn" onclick="importGrades()">📥 Importuoti pažymius</button>
-                    <button class="action-btn" onclick="sendNotifications()">📧 Siųsti pranešimus</button>
-                </div>
-            </div>
-
-            <div class="main-content">
-                <div class="grades-header">
-                    <h2 id="currentClass">5A klasės pažymių žurnalas</h2>
-                    <div class="header-actions">
-                        <button class="btn btn-secondary" onclick="printGrades()">🖨️ Spausdinti</button>
-                        <button class="btn btn-primary" onclick="addNewGrade()">+ Pridėti pažymį</button>
-                    </div>
-                </div>
-
-                <div class="subject-tabs">
-                    <button class="subject-tab active" onclick="selectSubject(this, 'Matematika')">Matematika</button>
-                    <button class="subject-tab" onclick="selectSubject(this, 'Fizika')">Fizika</button>
-                    <button class="subject-tab" onclick="selectSubject(this, 'Chemija')">Chemija</button>
-                    <button class="subject-tab" onclick="selectSubject(this, 'Biologija')">Biologija</button>
-                </div>
-
-                <div id="notification" class="notification" style="display: none;">
-                    <strong>Pranešimas:</strong> <span id="notificationText"></span>
-                </div>
-
-                <div class="table-container">
-                    <table class="grades-table">
-                        <thead>
-                            <tr>
-                                <th>Mokinys</th>
-                                <th>2024-05-15</th>
-                                <th>2024-05-20</th>
-                                <th>2024-05-25</th>
-                                <th>2024-06-01</th>
-                                <th>2024-06-04</th>
-                                <th>Vidurkis</th>
-                                <th>Veiksmai</th>
-                            </tr>
-                        </thead>
-                        <tbody id="gradesTableBody">
-                            <tr>
-                                <td class="student-name"><strong>Andrius Kazlauskas</strong></td>
-                                <td><input type="number" class="grade-input grade-8" value="8" min="1" max="10" onchange="updateGrade(this)"></td>
-                                <td><input type="number" class="grade-input grade-9" value="9" min="1" max="10" onchange="updateGrade(this)"></td>
-                                <td><input type="number" class="grade-input grade-7" value="7" min="1" max="10" onchange="updateGrade(this)"></td>
-                                <td><input type="number" class="grade-input grade-10" value="10" min="1" max="10" onchange="updateGrade(this)"></td>
-                                <td><input type="number" class="grade-input" value="" min="1" max="10" onchange="updateGrade(this)"></td>
-                                <td class="average-cell"><strong>8.5</strong></td>
-                                <td><button class="btn-small btn-primary" onclick="addGradeForStudent(this)">+</button></td>
-                            </tr>
-                            <tr>
-                                <td class="student-name"><strong>Birūtė Mockevičiūtė</strong></td>
-                                <td><input type="number" class="grade-input grade-9" value="9" min="1" max="10" onchange="updateGrade(this)"></td>
-                                <td><input type="number" class="grade-input grade-8" value="8" min="1" max="10" onchange="updateGrade(this)"></td>
-                                <td><input type="number" class="grade-input grade-9" value="9" min="1" max="10" onchange="updateGrade(this)"></td>
-                                <td><input type="number" class="grade-input grade-8" value="8" min="1" max="10" onchange="updateGrade(this)"></td>
-                                <td><input type="number" class="grade-input" value="" min="1" max="10" onchange="updateGrade(this)"></td>
-                                <td class="average-cell"><strong>8.5</strong></td>
-                                <td><button class="btn-small btn-primary" onclick="addGradeForStudent(this)">+</button></td>
-                            </tr>
-                            <tr>
-                                <td class="student-name"><strong>Darius Jonaitis</strong></td>
-                                <td><input type="number" class="grade-input grade-7" value="7" min="1" max="10" onchange="updateGrade(this)"></td>
-                                <td><input type="number" class="grade-input grade-6" value="6" min="1" max="10" onchange="updateGrade(this)"></td>
-                                <td><input type="number" class="grade-input grade-8" value="8" min="1" max="10" onchange="updateGrade(this)"></td>
-                                <td><input type="number" class="grade-input grade-7" value="7" min="1" max="10" onchange="updateGrade(this)"></td>
-                                <td><input type="number" class="grade-input" value="" min="1" max="10" onchange="updateGrade(this)"></td>
-                                <td class="average-cell"><strong>7.0</strong></td>
-                                <td><button class="btn-small btn-primary" onclick="addGradeForStudent(this)">+</button></td>
-                            </tr>
-                            <tr>
-                                <td class="student-name"><strong>Eglė Petraitytė</strong></td>
-                                <td><input type="number" class="grade-input grade-10" value="10" min="1" max="10" onchange="updateGrade(this)"></td>
-                                <td><input type="number" class="grade-input grade-9" value="9" min="1" max="10" onchange="updateGrade(this)"></td>
-                                <td><input type="number" class="grade-input grade-10" value="10" min="1" max="10" onchange="updateGrade(this)"></td>
-                                <td><input type="number" class="grade-input grade-10" value="10" min="1" max="10" onchange="updateGrade(this)"></td>
-                                <td><input type="number" class="grade-input" value="" min="1" max="10" onchange="updateGrade(this)"></td>
-                                <td class="average-cell"><strong>9.8</strong></td>
-                                <td><button class="btn-small btn-primary" onclick="addGradeForStudent(this)">+</button></td>
-                            </tr>
-                            <tr>
-                                <td class="student-name"><strong>Gintaras Vaitkus</strong></td>
-                                <td><input type="number" class="grade-input grade-8" value="8" min="1" max="10" onchange="updateGrade(this)"></td>
-                                <td><input type="number" class="grade-input grade-7" value="7" min="1" max="10" onchange="updateGrade(this)"></td>
-                                <td><input type="number" class="grade-input grade-9" value="9" min="1" max="10" onchange="updateGrade(this)"></td>
-                                <td><input type="number" class="grade-input grade-8" value="8" min="1" max="10" onchange="updateGrade(this)"></td>
-                                <td><input type="number" class="grade-input" value="" min="1" max="10" onchange="updateGrade(this)"></td>
-                                <td class="average-cell"><strong>8.0</strong></td>
-                                <td><button class="btn-small btn-primary" onclick="addGradeForStudent(this)">+</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+        <div class="students">
+            <h2>Mano klasės mokiniai</h2>
+            <ul>
+                <li>Daukša Aronas - 7C (Bendroji)</li>
+                <li>Kazėmekas Tauras - 7C (Bendroji)</li>
+                <li>Tauraitė Gabija - 7C (Bendroji)</li>
+                <li>Mohammadi Abdul Baset - 7C (Bendroji)</li>
+                <li>Ordaitė Sofija - 7C (Bendroji)</li>
+                <li>Karpov Ilja - 7C (Bendroji)</li>
+                <li>Ryzhenkov Vladyslav - 7C (Bendroji)</li>
+                <li>Tubelytė Fausta - 7C (Bendroji)</li>
+                <li>Bartušis Mantvydas - 7C (Bendroji)</li>
+                <li>Lileikytė Armantė - 7C (Bendroji)</li>
+                <li>Vyšniauskis Rapolas - 7C (Bendroji)</li>
+                <li>Goravoj Aleksej - 7C (Bendroji)</li>
+                <li>Budreikaitė Lėja - 7C (Bendroji)</li>
+                <li>Dambrauskas Nojus - 7C (Bendroji)</li>
+                <li>Kveske Amelia - 7C (Bendroji)</li>
+                <li>Senkutė Austėja - 7C (Bendroji)</li>
+                <li>Skardžius Martynas - 7C (Bendroji)</li>
+                <li>Stankevičius Tomas - 7C (Bendroji)</li>
+                <li>Stasiūnas Simonas - 7C (Bendroji)</li>
+                <li>Urbšaitė Aurėja - 7C (Bendroji)</li>
+                <li>Giriotaitė Goda - 7C (Bendroji)</li>
+                <li>Delgado Espinoza Santino - 7C (Bendroji)</li>
+                <li>Kurtieva Yeva - 7C (Bendroji)</li>
+                <li>Bileišis Laurynas - 7C (Bendroji)</li>
+                <li>Mockutė Auksė - 7C (Bendroji)</li>
+            </ul>
         </div>
     </div>
-
-    <button class="floating-save" onclick="saveAllGrades()" title="Išsaugoti visus pakeitimus">💾</button>
-
-    <script src="script.js"></script>
 </body>
 </html>
