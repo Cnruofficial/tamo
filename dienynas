@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dienynas TAMO - Mokytojo sąsaja</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="diary-page">
+    <header class="header">
+        <div class="logo">
+            <span class="logo-text">TAMO</span>
+            <div class="owl"></div>
+        </div>
+        <div class="user-info">
+            <span class="user-name">Mokytojas: <strong>Dominik šuškevič</strong></span>
+            <span class="separator">|</span>
+            <span class="department">Matematikos katedra</span>
+            <button class="logout-btn" onclick="logout()">Atsijungti</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="welcome-card">
+            <h1>Mokytojo dienynas</h1>
+            <p>Tvarkykite savo mokinių pažymius ir stebėkite jų pažangą</p>
+        </div>
+
+        <div class="dashboard">
+            <div class="sidebar">
+                <div class="class-selector">
+                    <h3>Mano klasės</h3>
+                    <ul class="class-list">
+                        <li class="class-item active" onclick="selectClass('5A')">5A klasė (28 mokiniai)</li>
+                        <li class="class-item" onclick="selectClass('5B')">5B klasė (26 mokiniai)</li>
+                        <li class="class-item" onclick="selectClass('6A')">6A klasė (24 mokiniai)</li>
+                        <li class="class-item" onclick="selectClass('7C')">7C klasė (22 mokiniai)</li>
+                    </ul>
+                </div>
+
+                <div class="stats-card">
+                    <div class="stats-number" id="totalStudents">28</div>
+                    <div>Mokinių skaičius</div>
+                </div>
+
+                <div class="stats-card">
+                    <div class="stats-number" id="avgGrade">7.8</div>
+                    <div>Vidutinis pažymys</div>
+                </div>
+
+                <div class="quick-actions">
+                    <h4>Greiti veiksmai</h4>
+                    <button class="action-btn" onclick="exportGrades()">📊 Eksportuoti pažymius</button>
+                    <button class="action-btn" onclick="importGrades()">📥 Importuoti pažymius</button>
+                    <button class="action-btn" onclick="sendNotifications()">📧 Siųsti pranešimus</button>
+                </div>
+            </div>
+
+            <div class="main-content">
+                <div class="grades-header">
+                    <h2 id="currentClass">5A klasės pažymių žurnalas</h2>
+                    <div class="header-actions">
+                        <button class="btn btn-secondary" onclick="printGrades()">🖨️ Spausdinti</button>
+                        <button class="btn btn-primary" onclick="addNewGrade()">+ Pridėti pažymį</button>
+                    </div>
+                </div>
+
+                <div class="subject-tabs">
+                    <button class="subject-tab active" onclick="selectSubject(this, 'Matematika')">Matematika</button>
+                    <button class="subject-tab" onclick="selectSubject(this, 'Fizika')">Fizika</button>
+                    <button class="subject-tab" onclick="selectSubject(this, 'Chemija')">Chemija</button>
+                    <button class="subject-tab" onclick="selectSubject(this, 'Biologija')">Biologija</button>
+                </div>
+
+                <div id="notification" class="notification" style="display: none;">
+                    <strong>Pranešimas:</strong> <span id="notificationText"></span>
+                </div>
+
+                <div class="table-container">
+                    <table class="grades-table">
+                        <thead>
+                            <tr>
+                                <th>Mokinys</th>
+                                <th>2024-05-15</th>
+                                <th>2024-05-20</th>
+                                <th>2024-05-25</th>
+                                <th>2024-06-01</th>
+                                <th>2024-06-04</th>
+                                <th>Vidurkis</th>
+                                <th>Veiksmai</th>
+                            </tr>
+                        </thead>
+                        <tbody id="gradesTableBody">
+                            <tr>
+                                <td class="student-name"><strong>Andrius Kazlauskas</strong></td>
+                                <td><input type="number" class="grade-input grade-8" value="8" min="1" max="10" onchange="updateGrade(this)"></td>
+                                <td><input type="number" class="grade-input grade-9" value="9" min="1" max="10" onchange="updateGrade(this)"></td>
+                                <td><input type="number" class="grade-input grade-7" value="7" min="1" max="10" onchange="updateGrade(this)"></td>
+                                <td><input type="number" class="grade-input grade-10" value="10" min="1" max="10" onchange="updateGrade(this)"></td>
+                                <td><input type="number" class="grade-input" value="" min="1" max="10" onchange="updateGrade(this)"></td>
+                                <td class="average-cell"><strong>8.5</strong></td>
+                                <td><button class="btn-small btn-primary" onclick="addGradeForStudent(this)">+</button></td>
+                            </tr>
+                            <tr>
+                                <td class="student-name"><strong>Birūtė Mockevičiūtė</strong></td>
+                                <td><input type="number" class="grade-input grade-9" value="9" min="1" max="10" onchange="updateGrade(this)"></td>
+                                <td><input type="number" class="grade-input grade-8" value="8" min="1" max="10" onchange="updateGrade(this)"></td>
+                                <td><input type="number" class="grade-input grade-9" value="9" min="1" max="10" onchange="updateGrade(this)"></td>
+                                <td><input type="number" class="grade-input grade-8" value="8" min="1" max="10" onchange="updateGrade(this)"></td>
+                                <td><input type="number" class="grade-input" value="" min="1" max="10" onchange="updateGrade(this)"></td>
+                                <td class="average-cell"><strong>8.5</strong></td>
+                                <td><button class="btn-small btn-primary" onclick="addGradeForStudent(this)">+</button></td>
+                            </tr>
+                            <tr>
+                                <td class="student-name"><strong>Darius Jonaitis</strong></td>
+                                <td><input type="number" class="grade-input grade-7" value="7" min="1" max="10" onchange="updateGrade(this)"></td>
+                                <td><input type="number" class="grade-input grade-6" value="6" min="1" max="10" onchange="updateGrade(this)"></td>
+                                <td><input type="number" class="grade-input grade-8" value="8" min="1" max="10" onchange="updateGrade(this)"></td>
+                                <td><input type="number" class="grade-input grade-7" value="7" min="1" max="10" onchange="updateGrade(this)"></td>
+                                <td><input type="number" class="grade-input" value="" min="1" max="10" onchange="updateGrade(this)"></td>
+                                <td class="average-cell"><strong>7.0</strong></td>
+                                <td><button class="btn-small btn-primary" onclick="addGradeForStudent(this)">+</button></td>
+                            </tr>
+                            <tr>
+                                <td class="student-name"><strong>Eglė Petraitytė</strong></td>
+                                <td><input type="number" class="grade-input grade-10" value="10" min="1" max="10" onchange="updateGrade(this)"></td>
+                                <td><input type="number" class="grade-input grade-9" value="9" min="1" max="10" onchange="updateGrade(this)"></td>
+                                <td><input type="number" class="grade-input grade-10" value="10" min="1" max="10" onchange="updateGrade(this)"></td>
+                                <td><input type="number" class="grade-input grade-10" value="10" min="1" max="10" onchange="updateGrade(this)"></td>
+                                <td><input type="number" class="grade-input" value="" min="1" max="10" onchange="updateGrade(this)"></td>
+                                <td class="average-cell"><strong>9.8</strong></td>
+                                <td><button class="btn-small btn-primary" onclick="addGradeForStudent(this)">+</button></td>
+                            </tr>
+                            <tr>
+                                <td class="student-name"><strong>Gintaras Vaitkus</strong></td>
+                                <td><input type="number" class="grade-input grade-8" value="8" min="1" max="10" onchange="updateGrade(this)"></td>
+                                <td><input type="number" class="grade-input grade-7" value="7" min="1" max="10" onchange="updateGrade(this)"></td>
+                                <td><input type="number" class="grade-input grade-9" value="9" min="1" max="10" onchange="updateGrade(this)"></td>
+                                <td><input type="number" class="grade-input grade-8" value="8" min="1" max="10" onchange="updateGrade(this)"></td>
+                                <td><input type="number" class="grade-input" value="" min="1" max="10" onchange="updateGrade(this)"></td>
+                                <td class="average-cell"><strong>8.0</strong></td>
+                                <td><button class="btn-small btn-primary" onclick="addGradeForStudent(this)">+</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="floating-save" onclick="saveAllGrades()" title="Išsaugoti visus pakeitimus">💾</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
