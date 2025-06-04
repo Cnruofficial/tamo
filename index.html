@@ -3,42 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TAMO - Susipažinkite su slaptažodžio saugumo instrukcija!</title>
+    <title>TAMO - Prisijungimas</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body>
-    <div class="header">
-        <div class="logo">
-            <a href="index.html">
-                <img src="http://googleusercontent.com/image_collection/image_retrieval/1543286545049328573" alt="TAMO Logo">
-            </a>
-        </div>
-        <div class="nav-buttons">
-            <a href="login.html" class="nav-button">Prisijungti</a>
-            <span class="menu-icon"><i class="fas fa-bars"></i></span>
+<body class="login-page">
+    <div class="login-container">
+        <div class="login-card">
+            <div class="logo-section">
+                <div class="logo">
+                    <span class="logo-text">TAMO</span>
+                    <div class="owl"></div>
+                </div>
+                <h1>Mokyklos dienynas</h1>
+                <p>Prisijunkite prie savo paskyros</p>
+            </div>
+
+            <form class="login-form" onsubmit="handleLogin(event)">
+                <div class="input-group">
+                    <label for="username">Naudotojo vardas</label>
+                    <input type="text" id="username" name="username" placeholder="Įveskite naudotojo vardą" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Slaptažodis</label>
+                    <input type="password" id="password" name="password" placeholder="Įveskite slaptažodį" required>
+                </div>
+
+                <div class="user-type">
+                    <label>Prisijungimo tipas:</label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="userType" value="teacher" checked>
+                            <span>Mokytojas</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="userType" value="student">
+                            <span>Mokinys</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="userType" value="parent">
+                            <span>Tėvas/Motina</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="login-btn">PRISIJUNGTI</button>
+            </form>
+
+            <div class="login-help">
+                <a href="#" onclick="showForgotPassword()">Pamiršote slaptažodį?</a>
+                <span>|</span>
+                <a href="#" onclick="showRegistration()">Registruotis</a>
+            </div>
+
+            <div class="footer-links">
+                <a href="#" onclick="showPrivacyPolicy()">Privatumo politika</a>
+                <a href="#" onclick="showTerms()">Naudojimo taisyklės</a>
+                <a href="#" onclick="showIntegrations()">Integracijos</a>
+            </div>
+
+            <div class="copyright">
+                ©2025 UAB „Tavo mokykla"
+            </div>
         </div>
     </div>
 
-    <div class="container">
-        <div class="security-section">
-            <h2>SUSIPAŽINKITE SU TAMO SLAPTAŽODŽIO SAUGUMO INSTRUKCIJA!</h2>
-            <p>
-                Kodėl reikia saugoti savo TAMO prisijungimo duomenis?
-            </p>
-            <p>
-                Atlikti tai tinkamai yra labai svarbu, nes tik taip galite apsisaugoti nuo nepageidaujamų pašalinių asmenų prisijungimo ir išvengti nepageidaujamų veiksmų Jūsų TAMO e. dienyno paskyroje.
-            </p>
-            <p>
-                Kviečiame susipažinti kokius 4 žingsnius naudinga atlikti norint tai užtikrinti.
-            </p>
-            <a href="#" class="learn-more-button">Sužinoti daugiau ></a>
-        </div>
-
-        <div class="promo-banner">
-            <h3>ĮSITIKINKITE, KAD JŪSŲ PASKYROS SLAPTAŽODIS YRA SAUGUS!</h3>
-            <img src="https://www.tamo.lt/wp-content/uploads/2021/09/slaptazodis-saugus.png" alt="Slaptažodžio saugumo iliustracija">
-        </div>
-    </div>
+    <script src="script.js"></script>
 </body>
 </html>
