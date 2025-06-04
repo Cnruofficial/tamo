@@ -1,71 +1,21 @@
-<!DOCTYPE html><html lang="lt">
+<!DOCTYPE html>
+<html lang="lt">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TAMO - Prisijungimas</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Prisijungimas</title>
+<link rel="stylesheet" href="style.css" />
 </head>
-<body class="login-page">
-    <div class="login-container">
-        <div class="login-card">
-            <div class="logo-section">
-                <div class="logo">
-                    <span class="logo-text">TAMO</span>
-                    <div class="owl"></div>
-                </div>
-                <h1>Mokyklos dienynas</h1>
-                <p>Prisijunkite prie savo paskyros</p>
-            </div><form class="login-form" onsubmit="handleLogin(event)">
-            <div class="input-group">
-                <label for="username">Naudotojo vardas</label>
-                <input type="text" id="username" name="username" placeholder="Dominik Šuškevič" value="Dominik Šuškevič" required>
-            </div>
-
-            <div class="input-group">
-                <label for="password">Slaptažodis</label>
-                <input type="password" id="password" name="password" placeholder="Suskevic123" value="Suskevic123" required>
-            </div>
-
-            <div class="user-type">
-                <label>Prisijungimo tipas:</label>
-                <div class="radio-group">
-                    <label class="radio-option">
-                        <input type="radio" name="userType" value="teacher" checked>
-                        <span>Mokytojas</span>
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="userType" value="student">
-                        <span>Mokinys</span>
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="userType" value="parent">
-                        <span>Tėvas/Motina</span>
-                    </label>
-                </div>
-            </div>
-
-            <button type="submit" class="login-btn">PRISIJUNGTI</button>
-        </form>
-
-        <div class="login-help">
-            <a href="#" onclick="showForgotPassword()">Pamiršote slaptažodį?</a>
-            <span>|</span>
-            <a href="#" onclick="showRegistration()">Registruotis</a>
-        </div>
-
-        <div class="footer-links">
-            <a href="#" onclick="showPrivacyPolicy()">Privatumo politika</a>
-            <a href="#" onclick="showTerms()">Naudojimo taisyklės</a>
-            <a href="#" onclick="showIntegrations()">Integracijos</a>
-        </div>
-
-        <div class="copyright">
-            ©2025 UAB „Tavo mokykla"
-        </div>
-    </div>
-</div>
+<body>
+<h1>Prisijungimo puslapis</h1>
+<form id="loginForm">
+  <label for="username">Vartotojo vardas:</label>
+  <input type="text" id="username" required />
+  <label for="password">Slaptažodis:</label>
+  <input type="password" id="password" required />
+  <button type="submit">Prisijungti</button>
+</form>
 
 <script src="script.js"></script>
-
 </body>
 </html>
